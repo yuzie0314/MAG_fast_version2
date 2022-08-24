@@ -1,0 +1,40 @@
+name: ASSEMBLY
+description: ASSEMBLY process has two assembler, metaspades and megahit
+keywords:
+    - metagenomic asswembler
+    - bioinformatics tools
+tools:
+    - metaspades:
+        description: |
+            SPAdes (St. Petersburg genome assembler) is intended for both standard isolates and single-cell MDA bacteria assemblies. 
+        homepage: https://cab.spbu.ru/software/spades
+        documentation: https://github.com/ablab/spades
+        licence: ['']
+    - megahit:
+        description: |
+            MEGAHIT: An ultra-fast single-node solution for large and complex metagenomics assembly via succinct de Bruijn graph 
+        homepage: https://github.com/voutcn/megahit
+        documentation: https://github.com/voutcn/megahit
+        licence: ['GNU']        
+input:
+    - batch:
+      type: value
+      description: declare batch 
+    - fastq:
+        type: files
+        description: |
+            fastq files from multiple samples
+output:
+    - batch:
+      type: value
+      description: declare batch 
+    - fasta:
+        type: file
+        description: The final assembly fasta file
+        pattern: "final_assembly.fasta"
+    - versions:
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
+authors:
+  - "@daniel.liu"
